@@ -12,20 +12,28 @@ class Solution:
 
 
 # example
-# DFS recursively, brute force
+# DFS recursively, back-tracking
 def subsets1(nums):
     res = []
     dfs(sorted(nums), 0, [], res)
     return res
 
 def dfs(nums, index, path, res):
-    print(path)
     res.append(path)
     for i in range(index, len(nums)):
         dfs(nums, i + 1, path + [nums[i]], res)
 
 
-# Bit Manipulation
+# Iteratively, best!!!!!!
+def subsets(nums):
+    res = [[]]
+    for num in sorted(nums):
+        toadd = [item + [num] for item in res]
+        res += toadd
+    return res
+
+
+# Bit Manipulation, hard to understand
 def subsets2(nums):
     res = []
     nums.sort()
@@ -37,14 +45,3 @@ def subsets2(nums):
         res.append(tmp)
     return res
 
-
-# Iteratively, best!!!!!!
-def subsets(nums):
-    res = [[]]
-    for num in sorted(nums):
-        toadd = [item + [num] for item in res]
-        # print(res)
-        # print(toadd)
-        res += toadd
-        # print(res)
-    return res
