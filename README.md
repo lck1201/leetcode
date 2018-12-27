@@ -1,3 +1,3 @@
 # leetcode
-***To think about the nature of the problem***
+***Think about the nature of the problem***
 
