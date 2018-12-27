@@ -1,2 +1,3 @@
 # leetcode
-leetcode solution of python
+***To think about the nature of the problem***
+
