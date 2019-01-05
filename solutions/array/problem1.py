@@ -13,6 +13,7 @@ class Solution:
                 end_idx = idx - 1
                 break
 
+        # O(N**2)
         for idx1 in range(end_idx+1):
             for idx2 in range(end_idx+1):
                 if idx1 == idx2:
@@ -24,7 +25,6 @@ class Solution:
 #example
 class Solution_example(object):
     def twoSum(self, nums, target):
-
         buff_dict = {}
         for i in range(len(nums)):
             if nums[i] in buff_dict:
