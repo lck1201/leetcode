@@ -23,8 +23,28 @@ class Solution:
                 return head
             head = temp
 
-# fake recursively
+
 class Solution2:
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head:
+            return head
+
+        #reverse sub linked-list
+        newhead = None
+        while head:
+            extraction = head
+            head = head.next
+            extraction.next = newhead
+            newhead = extraction
+
+        return head
+
+# fake recursively
+class Solution3:
     def reverseList(self, head):
         return self._reverse(head)
 
@@ -36,7 +56,7 @@ class Solution2:
         return self._reverse(next, node)
 
 # real recursively
-class Solution3:
+class Solution4:
     def reverseList(self, head):
         if not head or not head.next:
             return head
