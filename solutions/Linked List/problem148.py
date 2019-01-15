@@ -4,13 +4,11 @@ class ListNode:
         self.val = x
         self.next = None
 
-
 # update1: 实现了链表的快排，但是15/16 test case passed，最后一个case很恶心
 # 1,2,3 三个数字重复出现，导致分割不均匀，结果超时
 # 这题若要过这个case，merge排序更为合适
 
 # update2: 分成了 smaller_list, mid_list, bigger_list，通过所有case
-
 class LinkedList:
     def __init__(self, node):
         if not node:
@@ -102,7 +100,58 @@ class Solution:
 
         return ll.head
 
-# debug
+
+
+# NOTE: ------------merge sort--------------------
+def merge(l1, l2):
+    l = ListNode(0)
+    p = l
+
+    while l1!=None and l2!=None:
+        if l1.val < l2.val:
+            p.next = l1
+            l1 = l1.next
+        else:
+            p.next = l2
+            l2 = l2.next
+        p = p.next
+
+    if l1 != None:
+        p.next = l1
+    if l2 != None:
+        p.next = l2
+
+    return l.next
+
+class Solution2:
+    def sortList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if head==None or head.next==None:
+            return head
+
+        # step 1. cut the list to two halves
+        prev = None
+        slow = fast = head
+
+        while fast!=None and fast.next!=None:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+
+        prev.next = None
+
+        # step 2. sort each half
+        l1 = self.sortList(head)
+        l2 = self.sortList(slow)
+
+        # step 3. merge l1 and l2
+        return merge(l1, l2)
+
+
+# # debug
 # l = [6, 2, 3, 7, 10, 11, 100, -5, -123]
 # head = ListNode(l[0])
 # p = head
@@ -110,7 +159,7 @@ class Solution:
 #     p.next = ListNode(l[i])
 #     p = p.next
 #
-# s = Solution()
+# s = Solution2()
 # re = s.sortList(head)
 # while re:
 #     print(re.val)
