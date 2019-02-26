@@ -9,7 +9,7 @@ def dfs(node):
     if node==None:
         return 0
 
-    return max(dfs(node.left) + 1, dfs(node.right) + 1)
+    return max(dfs(node.left), dfs(node.right))+1
 
 class Solution:
     def maxDepth(self, root):
