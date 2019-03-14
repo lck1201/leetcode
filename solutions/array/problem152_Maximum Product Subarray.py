@@ -24,7 +24,47 @@ class Solution:
             pmax = max(nums[idx], pmax*n)
             pmin = min(nums[idx], pmin*n)
 
+
             # // the newly computed max value is a candidate for our global result
             result = max(pmax, result)
+            print(pmax, pmin, result)
 
         return result
+
+
+class Solution2:
+    @staticmethod
+    def maxProduct(nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return
+
+        pmax = [0 for _ in range(len(nums))]
+        pmin = [0 for _ in range(len(nums))]
+        result = nums[0]
+        pmax[0] = nums[0]
+        pmin[0] = nums[0]
+
+        for idx in range(1, len(nums)):
+            n = nums[idx]
+
+            pre_max = pmax[idx-1]
+            pre_min = pmin[idx-1]
+            if n < 0:
+                pre_max, pre_min = pre_min, pre_max
+
+            pmax[idx] = max(n, n*pre_max)
+            pmin[idx] = min(n, n*pre_min)
+
+            result = max(result, pmax[idx])
+
+        print(pmax)
+        print(pmin)
+        print(result)
+        return result
+
+Solution2.maxProduct([-1, 2, 4, 0, 1])
+

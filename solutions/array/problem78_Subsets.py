@@ -8,8 +8,8 @@ class Solution:
         for num in sorted(nums):
             toadd = [item + [num] for item in res]
             res += toadd
+            print(res)
         return res
-
 
 # example
 # DFS recursively, back-tracking
@@ -24,15 +24,6 @@ def dfs(nums, index, path, res):
         dfs(nums, i + 1, path + [nums[i]], res)
 
 
-# Iteratively, best!!!!!!
-def subsets(nums):
-    res = [[]]
-    for num in sorted(nums):
-        toadd = [item + [num] for item in res]
-        res += toadd
-    return res
-
-
 # Bit Manipulation, hard to understand
 def subsets2(nums):
     res = []
@@ -45,3 +36,22 @@ def subsets2(nums):
         res.append(tmp)
     return res
 
+
+class Solution2:
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        self.ans = [[]]
+
+        def dfs(nums, path, start):
+            for i in range(start, len(nums)):
+                self.ans.append(path + [nums[i]])
+                dfs(nums, path + [nums[i]], i+1)
+
+        dfs(nums, [], 0)
+
+        return self.ans
+
+print(Solution().subsets([1,2,3]))

@@ -11,13 +11,14 @@ class Solution:
         :type head: ListNode
         :rtype: ListNode
         """
-        if not head:
+        if not head or not head.next:
             return head
 
         pre = None
         while True:
             temp = head.next
             head.next = pre
+
             pre = head
             if not temp:
                 return head
@@ -43,19 +44,21 @@ class Solution2:
 
         return head
 
-# fake recursively
+
+# recursively, easy to understand, same idea as Solution
 class Solution3:
     def reverseList(self, head):
         return self._reverse(head)
 
-    def _reverse(self, node, prev=None):
-        if not node:
-            return prev
-        next = node.next
-        node.next = prev
-        return self._reverse(next, node)
+    def _reverse(self, cur_node, prev_node=None):
+        if not cur_node:
+            return prev_node
+        next_node = cur_node.next
+        cur_node.next = prev_node
+        return self._reverse(next_node, cur_node)
 
-# real recursively
+
+# more recursive
 class Solution4:
     def reverseList(self, head):
         if not head or not head.next:
@@ -66,4 +69,3 @@ class Solution4:
         head.next = None
 
         return node
-
