@@ -37,7 +37,7 @@ class Solution2:
             while root:
                 stack.append(root)
                 root = root.left
-            root = stack.pop()
+            root = stack.pop() #每次处理的只能是stack里pop出来的
             result.append(root.val)
             root = root.right
 
