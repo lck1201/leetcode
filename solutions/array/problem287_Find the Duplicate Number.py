@@ -20,20 +20,30 @@ class Solution:
         low = 1
         high = len(nums) - 1
 
-        while low < high:
+        # invalid input case, to check: non-exist duplicated digit
+        while low <= high:
             count = 0
-            mid = (low+high)//2
+            mid = (low + high) // 2
 
             for n in nums:
                 if n <= mid:
                     count += 1
+
+            # iterative end
+            if low == high:
+                if count > 1:
+                    return low
+                else:
+                    break
+            # iterative end
 
             if count <= mid:
                 low = mid + 1
             else:
                 high = mid
 
-        return low
+        return -1
+
 
 # fast&slow pointer solution, O(N) time, O(1) space
 # brilliant solution
