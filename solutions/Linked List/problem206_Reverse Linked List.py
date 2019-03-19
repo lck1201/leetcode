@@ -14,15 +14,16 @@ class Solution:
         if not head or not head.next:
             return head
 
-        pre = None
+        prev = None
         while True:
-            temp = head.next
-            head.next = pre
+            pNext = head.next
+            head.next = prev
 
-            pre = head
-            if not temp:
+            if not pNext:
                 return head
-            head = temp
+
+            prev = head
+            head = pNext
 
 
 class Solution2:
