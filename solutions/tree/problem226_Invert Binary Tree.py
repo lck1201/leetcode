@@ -14,6 +14,18 @@ class Solution:
 
         return root
 
+    def invertTree2(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return None
+
+        left = root.left
+        right = root.right
+
+        root.left = self.invertTree2(right)
+        root.right = self.invertTree2(left)
+
+        return root
+
 
 # BFS
 def invertTree2(root):
