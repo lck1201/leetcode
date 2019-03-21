@@ -27,7 +27,8 @@ class Solution:
         self.dp[n] = ans
         return ans
 
-
+# see https://leetcode.com/problems/unique-binary-search-trees/
+# discuss/31666/DP-Solution-in-6-lines-with-explanation.-F(i-n)-G(i-1)-*-G(n-i)
 class Solution2:
     def numTrees(self, n):
         """
@@ -38,7 +39,7 @@ class Solution2:
         dp[0] = 1
 
         for x in range(1, n + 1):
-            for k in range(0, x):
+            for k in range(x):
                 dp[x] += (dp[x-k-1] * dp[k])
 
         return dp[n]

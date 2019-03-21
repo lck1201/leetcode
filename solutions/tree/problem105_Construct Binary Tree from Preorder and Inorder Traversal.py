@@ -7,8 +7,6 @@ class TreeNode:
         self.left = None
         self.right = None
 
-def afunc(ll):
-    ll.pop(0)
 
 class Solution:
     def buildTree(self, preorder, inorder):
@@ -37,7 +35,9 @@ class Solution:
 
         return helper(deque(preorder), inorder)
 
-# pass index
+
+
+# pass index, better
 class Solution2:
     def buildTree(self, preorder, inorder):
         """
@@ -46,7 +46,7 @@ class Solution2:
         :rtype: TreeNode
         """
 
-        def helper(preorder, inorder):
+        def construct(preorder, inorder):
             if not inorder:
                 return None
 
@@ -59,11 +59,11 @@ class Solution2:
             index = inorder.index(root_val)
 
             # recursion
-            root.left = helper(preorder[:index], inorder[:index])
-            root.right = helper(preorder[index:], inorder[index + 1:])
+            root.left = construct(preorder[:index], inorder[:index])
+            root.right = construct(preorder[index:], inorder[index + 1:])
             return root
 
-        return helper(preorder, inorder)
+        return construct(preorder, inorder)
 
 
 preo = [1, 2, 4, 7, 3, 5, 6, 8]

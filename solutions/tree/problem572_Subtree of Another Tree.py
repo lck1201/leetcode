@@ -62,4 +62,3 @@ class Solution():
             return True
         else:
             return self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
-

@@ -13,6 +13,8 @@ class Solution:
 
         leftDepth = self.dfs(node.left)
         rightDepth = self.dfs(node.right)
+
+        # to get max diameter
         self.ans = max(leftDepth + rightDepth + 1, self.ans)
 
         return max(leftDepth, rightDepth) + 1
