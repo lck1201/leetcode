@@ -11,37 +11,59 @@ class Solution:
         if not root:
             return []
 
-        ans = [[]]
+        ans = []
         stacks = [[], []]
         current = 0
         next = 1
         stacks[current].append(root)
 
-        cur_depth = 0
+        # cur_depth = 0
         while stacks[current]:
-            node = stacks[current].pop()
+            # node = stacks[current].pop()
+            #
+            # while len(ans) < cur_depth + 1:
+            #     ans.append([])
+            #
+            # ans[cur_depth].append(node.val)
+            #
+            # if current == 0:
+            #     if node.left:
+            #         stacks[next].append(node.left)
+            #     if node.right:
+            #         stacks[next].append(node.right)
+            # else:
+            #     if node.right:
+            #         stacks[next].append(node.right)
+            #     if node.left:
+            #         stacks[next].append(node.left)
+            #
+            # if len(stacks[current]) == 0:
+            #     cur_depth += 1
+            #
+            #     current = 1 - current
+            #     next = 1 - next
 
-            while len(ans) < cur_depth + 1:
-                ans.append([])
+            # NOTE: another recursive process
+            tempAns = []
+            for idx in range(len(stacks[current]),-1,-1):
+                node = stacks[current][idx]
+                tempAns.append(node.val)
 
-            ans[cur_depth].append(node.val)
+                if current == 0:
+                    if node.left:
+                        stacks[next].append(node.left)
+                    if node.right:
+                        stacks[next].append(node.right)
+                else:
+                    if node.right:
+                        stacks[next].append(node.right)
+                    if node.left:
+                        stacks[next].append(node.left)
 
-            if current == 0:
-                if node.left:
-                    stacks[next].append(node.left)
-                if node.right:
-                    stacks[next].append(node.right)
-            else:
-                if node.right:
-                    stacks[next].append(node.right)
-                if node.left:
-                    stacks[next].append(node.left)
-
-            if len(stacks[current]) == 0:
-                cur_depth += 1
-
-                current = 1 - current
-                next = 1 - next
+            stacks[current].clear()
+            current = 1 - current
+            next = 1 - next
+            ans.append(tempAns)
 
         return ans
 
