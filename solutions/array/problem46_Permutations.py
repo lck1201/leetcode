@@ -1,3 +1,4 @@
+# 全排列
 class Solution:
     def permute(self, nums):
         """
@@ -6,7 +7,7 @@ class Solution:
         """
         ans = []
 
-        # use visit to control visibility
+        # NOTE: use visit to control visibility, more general if same digit/char appear twice or more
         # visit = [0] * len(nums)
         # def dfs(path, visit):
         #     if len(path) == len(nums):
@@ -19,16 +20,25 @@ class Solution:
         #             visit[idx] = 0
         # dfs([], visit)
 
-        # use set to control visibility
+        # NOTE: use set to control visibility
         nums = set(nums)
         def dfs(path, nums):
             if len(nums) == 0:
                 ans.append(path)
 
             for x in nums:
-                dfs(path + [x], nums-{x})
+                dfs(path + [x], nums - {x})
 
         dfs([], nums)
 
-
         return ans
+
+# 所有组合
+def func(nums):
+    ans = [[]]
+    for x in nums:
+        ans += [char + [x] for char in ans]
+
+    return ans
+
+print(func([1,2,3]))
