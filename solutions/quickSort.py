@@ -14,13 +14,11 @@ def partition(nums, left, right):
     nums[right], nums[storeIndex] = nums[storeIndex], nums[right]
     return storeIndex
 
-
 def quicksort(nums, left, right):
     if right > left:
         partitionIndex = partition(nums, left, right)
         quicksort(nums, left, partitionIndex - 1)
         quicksort(nums, partitionIndex + 1, right)
-
 
 nums = [-3, 6, 3, 9, 4, 2, 8, 66, 4, 2, 90, -6, 3, 2]
 quicksort(nums, 0, len(nums) - 1)
