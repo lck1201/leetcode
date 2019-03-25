@@ -44,14 +44,11 @@ class Solution2:
         # so_far is to record the sum from root to this node's parent
         # cache is to save all sums (root->predecessor) of all of this node's predecessors
         if node:
-            complementary = so_far + node.val - sum
+            complementary = so_far + node.val - sum # sum(root->node) - target is what we need in the previous path
             if complementary in cache:
                 self.result += cache[complementary]
-                # 得到所有前辈节点（从上到下）到这个点的和为sum的路径的数量
-            if so_far + node.val in cache:
-                cache[so_far + node.val] += 1
-            else:
-                cache[so_far + node.val] = 1
+
+            cache[so_far + node.val] = cache.get(so_far + node.val, 0) + 1
             self.helper(node.left, sum, so_far + node.val, cache)
             self.helper(node.right, sum, so_far + node.val, cache)
             cache[so_far + node.val] -= 1
