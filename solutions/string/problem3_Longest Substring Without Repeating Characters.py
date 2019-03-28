@@ -1,4 +1,5 @@
-#CORE: to record the position of start of sub-string
+# review
+# CORE: to record the position of start of sub-string
 
 # hash table
 class Solution:
@@ -22,7 +23,7 @@ print(Solution().lengthOfLongestSubstring('abba'))
 
 # excellent solution
 def lengthOfLongestSubstring(s):
-    table = [-1] * 256
+    table = [-1] * 256 # -1 is unvisited
     start = -1
     ans = 0
     for idx in range(len(s)):

@@ -1,3 +1,4 @@
+# review
 class Solution:
     # method1: re-construction, concise and understandable
     def longestPalindrome(self, s):
@@ -8,7 +9,7 @@ class Solution:
                 left -= 1
                 right += 1
 
-            return s[left+1:right] #[left+1, right)
+            return s[left+1:right] #[left+1, right-1]
 
         for ci in range(len(s)):
             temp = helper(s, ci, ci) #extend odd length, 'aba'
