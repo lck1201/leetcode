@@ -1,6 +1,5 @@
 from math import sqrt
 
-
 # Recursively
 class Solution2:
     def numSquares(self, n):

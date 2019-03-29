@@ -1,5 +1,8 @@
 # review
-# CORE: to record the position of start of sub-string
+# CORE: to keep tracking og start pointer of sub-string
+
+# https://leetcode.com/problems/minimum-window-substring/discuss/26808/
+# Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
 
 # hash table
 class Solution:
