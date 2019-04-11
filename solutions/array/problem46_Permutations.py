@@ -29,11 +29,20 @@ class Solution:
             for x in nums:
                 dfs(path + [x], nums - {x})
 
+        #NOTE: better method, because there may be duplicates in nums,
+        # so useing set is completely correct
+        def dfs2(self, nums, path):
+            if not nums:
+                ans.append(path)
+                # return # backtracking
+            for i in range(len(nums)):
+                self.dfs(nums[:i] + nums[i + 1:], path + [nums[i]])
+
         dfs([], nums)
 
         return ans
 
-# 所有组合
+# All Combination
 def func(nums):
     ans = [[]]
     for x in nums:

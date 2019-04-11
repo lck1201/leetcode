@@ -10,6 +10,8 @@ class Solution(object):
                 heapq.heappush(min_heap, nums[i])
         return min_heap[0]
 
+print(Solution().findKthLargest([5,5,7,2],1))
+
 # https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
 # https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/167837/Python-or-tm
 import random
