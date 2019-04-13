@@ -1,10 +1,5 @@
 def merge(arr1, arr2):
     result = []
-    if not arr1 and arr2:
-        return arr2
-    if not arr2 and arr1:
-        return arr1
-
     while arr1 and arr2:
         if arr1[0] < arr2[0]:
             result.append(arr1.pop(0))
