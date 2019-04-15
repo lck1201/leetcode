@@ -65,7 +65,6 @@ class Solution2:
 
         return construct(preorder, inorder)
 
-
 preo = [1, 2, 4, 7, 3, 5, 6, 8]
 ino = [4, 7, 2, 1, 5, 3, 8, 6]
 

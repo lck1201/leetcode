@@ -25,6 +25,7 @@ class Solution:
             prev = head
             head = pNext
 
+        # also can return prev here, canel 'if not pNext: return head'
 
 class Solution2:
     def reverseList(self, head):
@@ -35,7 +36,8 @@ class Solution2:
         if not head:
             return head
 
-        #reverse sub linked-list
+        # reverse sub linked-list
+        # extract and re-link
         newhead = None
         while head:
             extraction = head
@@ -70,3 +72,19 @@ class Solution4:
         head.next = None
 
         return node
+
+
+def reverse(node):
+    if not node or not node.next:
+        return node
+
+    prev = None
+    while node:
+        NextNode = node.next
+        node.next = prev
+        if not NextNode:
+            return node
+        prev = node
+        node = NextNode
+
+    return None

@@ -6,26 +6,27 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    # def inorder(self, node):
-    #     if not node:
-    #         return
-    #     self.inorder(node.left)
-    #     self.cnt = self.cnt - 1
-    #     if self.cnt == 0:
-    #         self.ans = node.val
-    #         return
-    #     self.inorder(node.right)
-    #
-    # def kthSmallest(self, root: TreeNode, k: int) -> int:
-    #     self.ans = 0
-    #     self.cnt = k
-    #
-    #     self.inorder(root)
-    #
-    #     return self.ans
+    def kthSmallest1(self, root: TreeNode, k: int) -> int:
+        ans = float('-inf')
+        def inorder(node):
+            nonlocal k, ans
+            if ans != float('-inf'): # already find an answer, skip following operations
+                return
+
+            if not node:
+                return None
+
+            inorder(node.left)
+            k = k - 1
+            if k == 0:
+                ans = node.val
+            inorder(node.right)
+
+        inorder(root)
+        return ans
 
     #iterative
-    def kthSmallest(self, root: TreeNode, k: int) -> int:
+    def kthSmallest2(self, root: TreeNode, k: int) -> int:
         self.ans = 0
         self.cnt = k
 

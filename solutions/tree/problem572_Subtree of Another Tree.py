@@ -1,3 +1,26 @@
+# recursively
+# 看清楚题目要求，子树的定义
+def isSame(s,t):
+    if not s and not t:
+        return True
+    if not s or not t:
+        return False
+
+    if s.val != t.val:
+        return False
+
+    return isSame(s.left, t.left) and isSame(s.right, t.right)
+
+class Solution():
+    def isSubtree(self, s, t):
+        if not s or not t:
+            return False
+
+        if isSame(s, t):
+            return True
+        else:
+            return self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
+
 # # iterative
 # def inorder_travel(node):
 #     re = []
@@ -38,27 +61,3 @@
 #                 q.append(the_node.right)
 #
 #         return False
-
-
-# recursively
-def isSame(s,t):
-    if not s and not t:
-        return True
-    if not s or not t:
-        return False
-
-    if s.val != t.val:
-        return False
-
-    return isSame(s.left, t.left) and isSame(s.right, t.right)
-
-
-class Solution():
-    def isSubtree(self, s, t):
-        if not s:
-            return False
-
-        if isSame(s, t):
-            return True
-        else:
-            return self.isSubtree(s.left, t) or self.isSubtree(s.right, t)

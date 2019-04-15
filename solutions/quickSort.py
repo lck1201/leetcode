@@ -5,14 +5,14 @@ def partition(nums, left, right):
     nums[pivotIdx], nums[right] = nums[right], nums[pivotIdx]
     pivotVal = nums[right]
 
-    storeIndex = left
+    partitionIndex = left
     for i in range(left, right):
         if nums[i] < pivotVal:
-            nums[i], nums[storeIndex] = nums[storeIndex], nums[i]
-            storeIndex += 1
+            nums[i], nums[partitionIndex] = nums[partitionIndex], nums[i]
+            partitionIndex += 1
 
-    nums[right], nums[storeIndex] = nums[storeIndex], nums[right]
-    return storeIndex
+    nums[right], nums[partitionIndex] = nums[partitionIndex], nums[right]
+    return partitionIndex
 
 def quicksort(nums, left, right):
     if right > left:

@@ -18,16 +18,18 @@ class Solution:
         NodeList = list()
         NodeList.append(root)
         while NodeList:
-            temp = []
-            ChildNodeCache = []
-            while NodeList:
+            tmp = list()
+
+            n = len(NodeList)
+            for _ in range(n):
                 nd = NodeList.pop(0)
-                temp.append(nd.val)
+
+                tmp.append(nd.val)
                 if nd.left:
-                    ChildNodeCache.append(nd.left)
+                    NodeList.append(nd.left)
                 if nd.right:
-                    ChildNodeCache.append(nd.right)
-            ans.append(temp)
-            NodeList.extend(ChildNodeCache)
+                    NodeList.append(nd.right)
+
+            ans.append(tmp)
 
         return ans

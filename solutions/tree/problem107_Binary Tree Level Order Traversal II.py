@@ -31,3 +31,32 @@ class Solution:
             curDepth += 1
 
         return list(reversed(ans))
+
+
+class Solution2:
+    def levelOrderBottom(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        ans = []
+        if not root:
+            return ans
+
+        NodeList = [root]
+        while NodeList:
+            CurLevelAns = list()
+
+            n = len(NodeList)
+            for _ in range(n):
+                nd = NodeList.pop(0)
+
+                CurLevelAns.append(nd.val)
+                if nd.left:
+                    NodeList.append(nd.left)
+                if nd.right:
+                    NodeList.append(nd.right)
+
+            ans.append(CurLevelAns)
+
+        return list(reversed(ans))

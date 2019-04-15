@@ -11,10 +11,9 @@ class Solution:
             return nums[0]
 
         table = [-1] * N
+        table[0] = nums[0]
         for idx in range(N):
-            if idx == 0:
-                table[idx] = nums[0]
-            elif idx == 1:
+            if idx == 1:
                 table[idx] = max(nums[0], nums[1])
             else:
                 table[idx] = max(table[idx-1], nums[idx]+table[idx-2])

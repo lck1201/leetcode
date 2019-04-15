@@ -1,10 +1,10 @@
 from queue import PriorityQueue
 
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 class TupleSortingOn0(tuple):
     def __lt__(self, rhs):

@@ -20,7 +20,7 @@ class Solution:
 
             return curDepth, abs(leftDepth - rightDepth) <= 1
 
-        depth, isB = dfs(root)
+        _, isB = dfs(root)
 
         return isB
 

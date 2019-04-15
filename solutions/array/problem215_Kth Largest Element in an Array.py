@@ -12,6 +12,7 @@ class Solution(object):
 
 print(Solution().findKthLargest([5,5,7,2],1))
 
+
 # https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
 # https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/167837/Python-or-tm
 import random
@@ -24,6 +25,9 @@ class Solution2:
         """
 
         def partition(left, right, pivot_index):
+            '''
+            It's exactly the quick sort component
+            '''
             pivot = nums[pivot_index]
             # 1. move pivot to end
             nums[pivot_index], nums[right] = nums[right], nums[pivot_index]

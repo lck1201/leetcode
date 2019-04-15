@@ -10,24 +10,26 @@ class Solution:
         if not root:
             return True
 
-        self.prev = float('-inf')
-        self.ans = True
-        self.inorder(root)
+        prev = float('-inf')
+        ans = True
 
-        return self.ans
+        def inorder(node):
+            nonlocal ans, prev
 
-    def inorder(self, node):
-        if not node:
-            return
-        self.inorder(node.left)
+            if not node:
+                return
 
-        if node.val <= self.prev:
-            self.ans = False
-            return
-        else:
-            self.prev = node.val
+            inorder(node.left)
+            if node.val <= prev:
+                ans = False
+                return
+            else:
+                prev = node.val
+            inorder(node.right)
 
-        self.inorder(node.right)
+        inorder(root)
+        return ans
+
 
     def isValidBST_iter(self, root: 'TreeNode') -> 'bool':
         stack = []
