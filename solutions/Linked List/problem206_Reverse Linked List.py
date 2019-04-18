@@ -45,7 +45,7 @@ class Solution2:
             extraction.next = newhead
             newhead = extraction
 
-        return head
+        return newhead
 
 
 # recursively, easy to understand, same idea as Solution

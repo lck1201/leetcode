@@ -4,15 +4,13 @@ class Solution:
         :type prices: List[int]
         :rtype: int
         """
-        minBuyin = 1000000000
+        if not prices:
+            return 0
+
+        minBuyin = prices[0]
         maxProfit = 0
-        for p in prices:
-            minBuyin = min(p, minBuyin)
-            maxProfit = max(p-minBuyin, maxProfit)
+        for i in range(1, len(prices)):
+            maxProfit = max(prices[i] - minBuyin, maxProfit) #should sell first
+            minBuyin = min(prices[i], minBuyin) # then update BuyIn Price
 
         return maxProfit
-
-
-sol = Solution()
-re = sol.maxProfit([3,7,1,2])
-print(re)

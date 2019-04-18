@@ -21,9 +21,8 @@ class Solution:
 
             # // max/min product for the current number is either the current number itself
             # // or the max/min by the previous number times the current one
-            pmax = max(nums[idx], pmax*n)
-            pmin = min(nums[idx], pmin*n)
-
+            pmax = max(nums[idx], pmax * n)
+            pmin = min(nums[idx], pmin * n)
 
             # // the newly computed max value is a candidate for our global result
             result = max(pmax, result)
@@ -32,7 +31,7 @@ class Solution:
         return result
 
 
-class Solution2:
+class Solution_DP:
     @staticmethod
     def maxProduct(nums):
         """
@@ -51,13 +50,13 @@ class Solution2:
         for idx in range(1, len(nums)):
             n = nums[idx]
 
-            pre_max = pmax[idx-1]
-            pre_min = pmin[idx-1]
+            pre_max = pmax[idx - 1]
+            pre_min = pmin[idx - 1]
             if n < 0:
                 pre_max, pre_min = pre_min, pre_max
 
-            pmax[idx] = max(n, n*pre_max)
-            pmin[idx] = min(n, n*pre_min)
+            pmax[idx] = max(n, n * pre_max)
+            pmin[idx] = min(n, n * pre_min)
 
             result = max(result, pmax[idx])
 
@@ -65,6 +64,3 @@ class Solution2:
         print(pmin)
         print(result)
         return result
-
-Solution2.maxProduct([-1, 2, 4, 0, 1])
-
