@@ -1,7 +1,7 @@
 import random
 
 def partition(nums, left, right):
-    pivotIdx = random.choice(list(range(left, right + 1)))
+    pivotIdx = random.randint(left, right)
     nums[pivotIdx], nums[right] = nums[right], nums[pivotIdx]
     pivotVal = nums[right]
 

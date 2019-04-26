@@ -15,10 +15,12 @@ class Solution:
             for nCol in range(cols):
                 if matrix[nRow][nCol] == '1':
                     if nRow >= 1 and nCol >= 1:
-                        dp_table[nRow][nCol] = min([dp_table[nRow-1][nCol], dp_table[nRow][nCol-1], dp_table[nRow-1][nCol-1]]) + 1
+                        dp_table[nRow][nCol] = min([dp_table[nRow - 1][nCol],
+                                                    dp_table[nRow][nCol - 1],
+                                                    dp_table[nRow - 1][nCol - 1]]) + 1
                     else:
                         dp_table[nRow][nCol] = 1
 
                     result = max(result, dp_table[nRow][nCol])
 
-        return result**2
+        return result ** 2

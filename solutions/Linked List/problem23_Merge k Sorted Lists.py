@@ -22,9 +22,11 @@ class Solution(object):
         curr = dummy
         q = PriorityQueue()
         for node in lists:
-            if node: q.put(TupleSortingOn0((node.val,node)))
+            if node:
+                q.put(TupleSortingOn0((node.val,node)))
         while q.qsize()>0:
             curr.next = q.get()[1]
-            curr=curr.next
-            if curr.next: q.put(TupleSortingOn0((curr.next.val, curr.next)))
+            curr = curr.next
+            if curr.next:
+                q.put(TupleSortingOn0((curr.next.val, curr.next))) # put node.next into PriorQueue
         return dummy.next
