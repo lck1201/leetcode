@@ -31,8 +31,15 @@ def canFinish(numCourses, prerequisites):
     graph = [[] for _ in range(numCourses)]
     visit = [0 for _ in range(numCourses)]
     for x, y in prerequisites:
-        graph[x].append(y)
+        graph[x].append(y) # to store course x's pre-requisites
+
     def dfs(i):
+        '''
+        travel node from child to parent,
+        -1: being visited
+        0: non-processed
+        1: finished
+        '''
         if visit[i] == -1:
             return False
         if visit[i] == 1:
@@ -43,6 +50,7 @@ def canFinish(numCourses, prerequisites):
                 return False
         visit[i] = 1
         return True
+
     for i in range(numCourses):
         if not dfs(i):
             return False
