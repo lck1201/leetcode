@@ -2,7 +2,7 @@ class Solution:
     def numDecodings(self, s: str) -> int:
         if not s:
             return 0
-        62
+
         dp = [0] * (len(s) + 1)
         dp[0] = 1
         dp[1] = 1 if s[0] != '0' else 0
