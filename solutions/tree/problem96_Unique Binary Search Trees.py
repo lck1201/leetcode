@@ -37,9 +37,10 @@ class Solution2:
         """
         dp = [0] * (n + 1)
         dp[0] = 1
+        dp[1] = 1
 
         for x in range(1, n + 1):
             for k in range(x):
-                dp[x] += (dp[x-k-1] * dp[k])
+                dp[x] += (dp[k] * dp[x-1-k])
 
         return dp[n]

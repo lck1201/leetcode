@@ -16,16 +16,17 @@ class Solution:
         def inorder(node):
             nonlocal ans, prev
 
-            if not node:
-                return
+            if node.left:
+                inorder(node.left)
 
-            inorder(node.left)
             if node.val <= prev:
                 ans = False
-                return
+                return ans
             else:
                 prev = node.val
-            inorder(node.right)
+
+            if node.right:
+                inorder(node.right)
 
         inorder(root)
         return ans
