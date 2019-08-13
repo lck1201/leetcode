@@ -6,7 +6,7 @@ class TreeNode:
         self.right = None
 
 class Solution:
-    def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
+    def pathSum(self, root: TreeNode, sum: int) -> 'List[List[int]]':
         ans = []
         if not root:
             return ans

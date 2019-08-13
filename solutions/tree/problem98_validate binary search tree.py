@@ -5,6 +5,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def isValidBST(self, root: 'TreeNode') -> 'bool':
         if not root:
@@ -15,13 +16,15 @@ class Solution:
 
         def inorder(node):
             nonlocal ans, prev
+            if not ans:
+                return
 
             if node.left:
                 inorder(node.left)
 
             if node.val <= prev:
                 ans = False
-                return ans
+                return
             else:
                 prev = node.val
 
@@ -30,7 +33,6 @@ class Solution:
 
         inorder(root)
         return ans
-
 
     def isValidBST_iter(self, root: 'TreeNode') -> 'bool':
         stack = []
@@ -47,3 +49,13 @@ class Solution:
             root = root.right
 
         return True
+
+
+# 分左右子树去解
+def isValidBST(root, minVal, maxVal):
+    if (root == None):
+        return True
+    if (root.val >= maxVal or root.val <= minVal):
+        return False
+
+    return isValidBST(root.left, minVal, root.val) and isValidBST(root.right, root.val, maxVal)

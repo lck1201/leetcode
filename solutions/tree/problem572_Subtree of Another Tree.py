@@ -1,12 +1,9 @@
 # recursively
-# 看清楚题目要求，子树的定义
+# 看清楚题目要求，子树 or 子结构
 def isSame(s,t):
     if not s and not t:
         return True
-    if not s or not t:
-        return False
-
-    if s.val != t.val:
+    if not s or not t or s.val != t.val:
         return False
 
     return isSame(s.left, t.left) and isSame(s.right, t.right)

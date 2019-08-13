@@ -45,7 +45,7 @@ class Solution:
 
             # NOTE: another recursive process
             tempAns = []
-            for idx in range(len(stacks[current]),-1,-1):
+            for idx in range(len(stacks[current]) - 1, -1, -1):
                 node = stacks[current][idx]
                 tempAns.append(node.val)
 

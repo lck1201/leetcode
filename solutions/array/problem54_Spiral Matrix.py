@@ -4,7 +4,7 @@ class Solution:
         '''
         Excellent Solution https://leetcode.com/problems/spiral-matrix/discuss/20571/1-liner-in-Python-%2B-Ruby
         '''
-        return matrix and list(matrix.pop(0)) + self.spiralOrder(list(zip(*matrix))[::-1]) #python2 style
+        return list(matrix.pop(0)) + self.spiralOrder(list(zip(*matrix))[::-1]) if matrix else []  # python2 style
         # return matrix and [*matrix.pop(0)] + self.spiralOrder([*zip(*matrix)][::-1]) #python3 style
 
     def spiralOrder2(self, matrix: 'List[List[int]]') -> 'List[int]':
@@ -36,4 +36,5 @@ inp = [
  [ 4, 5, 6 ],
  [ 7, 8, 9 ]
 ]
-Solution().spiralOrder2(inp)
+re = Solution().spiralOrder(inp)
+print(re)

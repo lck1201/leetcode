@@ -12,20 +12,21 @@ class Solution:
             return head
 
         maping = dict()
-        dummy = Node(None,None,None)
-        ptr = dummy
+        dummy = Node(None, None, None)
+        tail = dummy
 
         HeadPtr = head
         while HeadPtr:
             newNode = Node(HeadPtr.val, None, None)
             maping[id(HeadPtr)] = newNode
-            ptr.next = newNode
-            ptr = ptr.next
+            tail.next = newNode
+            tail = tail.next
+            tail.next = None
             HeadPtr = HeadPtr.next
 
         HeadPtr = head
         while HeadPtr:
-            if HeadPtr.random: #if its random ptr is not NULL
+            if HeadPtr.random:  # if its random ptr is not NULL
                 maping[id(HeadPtr)].random = maping[id(HeadPtr.random)]
             else:
                 maping[id(HeadPtr)].random = None
