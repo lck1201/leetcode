@@ -41,10 +41,8 @@ class Solution:
         self.head = None
 
     def inorder(self, root):
-        if not root:
-            return
-
-        self.inorder(root.left)
+        if root.left:
+            self.inorder(root.left)
 
         root.left = self.pre
         if not self.pre:
@@ -53,9 +51,12 @@ class Solution:
             self.pre.right = root
         self.pre = root
 
-        self.inorder(root.right)
+        if root.right:
+            self.inorder(root.right)
 
 
 root = buildBST([6, 2, 4, 8, 5, 3, 7])
-ans = Solution().inorder(root)
-print_list(ans.head)
+ans = Solution()
+ans.inorder(root)
+print(ans.head.val)
+

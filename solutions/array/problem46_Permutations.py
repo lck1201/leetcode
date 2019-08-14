@@ -21,7 +21,6 @@ class Solution:
         # dfs([], visit)
 
         # NOTE: use set to control visibility
-        nums = set(nums)
         def dfs(path, nums):
             if len(nums) == 0:
                 ans.append(path)
@@ -30,17 +29,18 @@ class Solution:
                 dfs(path + [x], nums - {x})
 
         #NOTE: better method, because there may be duplicates in nums,
-        # so useing set is completely correct
-        def dfs2(self, nums, path):
+        # so using set is not completely correct
+        def dfs2(nums, path):
             if not nums:
                 ans.append(path)
                 # return # backtracking
             for i in range(len(nums)):
-                self.dfs(nums[:i] + nums[i + 1:], path + [nums[i]])
+                dfs2(nums[:i] + nums[i + 1:], path + [nums[i]])
 
-        dfs([], nums)
+        dfs2(nums, [])
 
         return ans
+
 
 # All Combination
 def func(nums):
@@ -50,4 +50,5 @@ def func(nums):
 
     return ans
 
-print(func([1,2,3]))
+
+print(Solution().permute([1, 2, 3]))

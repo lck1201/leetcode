@@ -22,17 +22,14 @@ class Solution:
         output = ''.join((e.value for e in numStrings))
         return output.lstrip('0') or '0'
 
+# python2
+class Solution2:
+    # @param num, a list of integers
+    # @return a string
+    def largestNumber(self, num):
+        num = [str(x) for x in num]
+        num.sort(cmp=lambda x, y: cmp(y+x, x+y))
+        return ''.join(num).lstrip('0') or '0'
 
-# import operator
-# class Solution2:
-#     # @param num, a list of integers
-#     # @return a string
-#     def largestNumber(self, num):
-#         def func(x, y):
-#             return y + x > x + y
-#         num = [str(x) for x in num]
-#         num.sort()
-#         print(num)
-#         return ''.join(num).lstrip('0') or '0'
-
-Solution2().largestNumber([3,30,34,5,9])
+re = Solution2().largestNumber([3,30,34,5,9])
+print(re)
