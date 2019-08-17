@@ -1,28 +1,31 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        # # bit manipulation
+        # # bit manipulation, very good
         # ans = 0
-        # i = 0
-        # while i < len(nums):
-        #     ans = i ^ nums[i] ^ ans
-        #     i += 1
+        # for i in range(len(nums)):
+        #     ans ^= i
+        #     ans ^= nums[i]
         #
-        # return ans ^ i
+        # return ans
 
+        # O(N)
         # gaussian sum
-        # totolSum = 0.5* len(nums) * (len(nums)+1)
+        # totolSum = 0.5 * len(nums) * (len(nums)+1)
         # currentSum = sum(nums)
-        # return totolSum - currentSum
+        # return int(totolSum - currentSum)
 
+        # O(N * LogN)
         # binary search
         nums.sort()
         left = 0
-        right = len(nums)
-        while left < right:
+        right = len(nums) - 1
+        while left <= right:
             mid = (left + right) // 2
-            if nums[mid]>mid:
-                right = mid
-            elif nums[mid]==mid:
-                left = mid+1
+            if nums[mid] != mid:
+                if mid == 0 or nums[mid - 1] == mid - 1:
+                    return mid
+                right = mid - 1
+            else:
+                left = mid + 1
 
         return left

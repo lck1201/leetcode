@@ -13,7 +13,7 @@ class MedianFinder:
         heappush(self.small_part, -heappushpop(self.big_part, num))
         if len(self.big_part) < len(self.small_part):
             heappush(self.big_part, -heappop(self.small_part))
-        print(self.small_part, self.big_part)
+        print("small:", self.small_part, "big:", self.big_part)
 
     def findMedian(self) -> float:
         if len(self.big_part) > len(self.small_part):
@@ -21,8 +21,8 @@ class MedianFinder:
         return (self.big_part[0] - self.small_part[0]) / 2.0
 
 # Your MedianFinder object will be instantiated and called as such:
-# obj = MedianFinder()
-# nums = [3,5,8,4,2,87,0,2,5,7,-3,7,4]
-# for x in nums:
-#     obj.addNum(x)
-# param_2 = obj.findMedian()
+obj = MedianFinder()
+nums = [3, 5, 8, 4, 2, 87, 0, 2, 5, 7, -3, 7, 4]
+for x in nums:
+    obj.addNum(x)
+param_2 = obj.findMedian()

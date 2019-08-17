@@ -23,7 +23,7 @@ class Solution:
             inorder(node.right)
 
         inorder(root)
-        return ans
+        return int(ans)
 
     #iterative
     def kthSmallest2(self, root: TreeNode, k: int) -> int:

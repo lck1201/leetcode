@@ -28,6 +28,6 @@ class Solution_example(object):
         buff_dict = {}
         for i in range(len(nums)):
             if nums[i] in buff_dict:
-                return [buff_dict[nums[i]], i]
+                return [buff_dict[nums[i]], i]  # ans is index
             else:
                 buff_dict[target - nums[i]] = i

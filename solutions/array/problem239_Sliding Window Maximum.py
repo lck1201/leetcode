@@ -11,7 +11,7 @@ class Solution:
         ri = 0
         for i in range(length):
             # remove numbers out of range k
-            while len(maxQueue) and maxQueue[0] <= i-k:
+            while len(maxQueue) and maxQueue[0] <= i - k:
                 maxQueue.popleft()
 
             # remove smaller numbers in k range as they are useless
@@ -20,7 +20,7 @@ class Solution:
 
             # maxQueue contains index; ans contains content;
             maxQueue.append(i)
-            if i >= k-1:
+            if i >= k - 1:
                 ans[ri] = nums[maxQueue[0]]
                 ri += 1
 

@@ -17,7 +17,7 @@ class Solution:
         #         return k
 
         # O(NlogN) time & O(1) space
-        low = 1
+        low = 0
         high = len(nums) - 1
 
         # invalid input case, to check: non-exist duplicated digit
@@ -60,3 +60,6 @@ def findDuplicate(nums):
         fast = nums[fast]
 
     return slow
+
+
+print(findDuplicate([3, 1, 3, 4, 2]))

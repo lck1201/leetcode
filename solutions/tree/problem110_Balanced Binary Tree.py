@@ -15,10 +15,11 @@ class Solution:
             rightDepth, isRightBa = dfs(node.right)
 
             curDepth = max(leftDepth, rightDepth) + 1
+
             if not isLeftBa or not isRightBa:
                 return curDepth, False
-
-            return curDepth, abs(leftDepth - rightDepth) <= 1
+            else:
+                return curDepth, abs(leftDepth - rightDepth) <= 1
 
         _, isB = dfs(root)
 

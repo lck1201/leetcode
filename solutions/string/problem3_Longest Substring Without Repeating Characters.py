@@ -22,16 +22,18 @@ class Solution:
 
         return ans
 
+
 print(Solution().lengthOfLongestSubstring('abba'))
+
 
 # excellent solution
 def lengthOfLongestSubstring(s):
-    table = [-1] * 256 # -1 is unvisited
+    table = [-1] * 256  # -1 is unvisited
     start = -1
     ans = 0
     for idx in range(len(s)):
-        if table[ord(s[idx])] > start:
+        if table[ord(s[idx])] > start:  # s[idx] has been met before, in this subString
             start = table[ord(s[idx])]
-        table[ord(s[idx])] = idx
-        ans = max(ans, idx - start)
+        table[ord(s[idx])] = idx  # update latest index
+        ans = max(ans, idx - start)  # update
     return ans
