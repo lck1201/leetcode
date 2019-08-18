@@ -20,8 +20,13 @@ class Solution:
 
             # maxQueue contains index; ans contains content;
             maxQueue.append(i)
-            if i >= k - 1:
+            if i >= k - 1:  # start to fill ans
                 ans[ri] = nums[maxQueue[0]]
                 ri += 1
 
         return ans
+
+
+arr = [2, 3, 4, 2, 6, 2, 5, 1]
+re = Solution().maxSlidingWindow(arr, 3)
+print(re)

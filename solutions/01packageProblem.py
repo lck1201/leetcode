@@ -1,5 +1,5 @@
 def solution(values, weights, maxSize):
-    values  = [0] + values
+    values = [0] + values  # add zero for convenience, and represents put nothing
     weights = [0] + weights
     dp = [[0] * (maxSize + 1) for _ in range(len(values))]
     for thing in range(1, len(values)):
@@ -8,7 +8,7 @@ def solution(values, weights, maxSize):
                 dp[thing][w] = dp[thing - 1][w]  # current item weights > package capacity, cannot be put inside
             else:
                 dp[thing][w] = max(dp[thing - 1][w],  # NO put current item
-                                   dp[thing - 1][w - weights[thing]] + values[thing])  # put inside current item
+                                   dp[thing - 1][w - weights[thing]] + values[thing])  # put current item
     print(dp[-1][-1])
     for line in dp:
         print(line)
@@ -18,3 +18,5 @@ weights = [1, 2, 3, 5, 7]
 maxSize = 8
 
 solution(values, weights, maxSize)
+
+# f[i,j] = Max{ f[i-1,j-Wi]+Pi( j >= Wi ),  f[i-1,j] }

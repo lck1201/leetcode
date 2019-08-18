@@ -7,6 +7,7 @@ class MinStack:
     def __init__(self):
         """
         initialize your data structure here.
+        Has to figure out, whether build MinStack on existing stack, or write node operation from stratch
         """
         self.minVal = list()
         self.top = None
