@@ -15,4 +15,5 @@ class Solution:
             if twoPhase >= 10 and twoPhase <= 26:
                 dp[i + 1] += dp[i - 1]
 
+        # a little like fiboncci array
         return dp[len(s)]

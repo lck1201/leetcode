@@ -15,7 +15,7 @@ class Solution:
             if not node:
                 return
 
-            if not node.left and not node.right and target-node.val==0:
+            if target-node.val==0 and not node.left and not node.right:
                 ans.append(path + [node.val])
                 return
 

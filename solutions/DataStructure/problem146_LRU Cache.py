@@ -19,7 +19,7 @@ class LRUCache:
         if key in self.dic:
             node = self.dic[key]
             self._remove(node)
-            self._add(node)
+            self._add(node) # add to tail, which is most recently visited
             return node.val
 
         return -1
@@ -31,7 +31,7 @@ class LRUCache:
         self._add(n)
         self.dic[key] = n
         if len(self.dic) > self.capacity:
-            n = self.dummy  .next
+            n = self.dummy.next
             self._remove(n)
             del self.dic[n.key]
 
@@ -41,6 +41,10 @@ class LRUCache:
         next = node.next
         prev.next = next
         next.prev = prev
+
+        # for safety
+        node.prev = None
+        node.next = None
         # cannot delete node, because it will be used later
 
     def _add(self, node):
