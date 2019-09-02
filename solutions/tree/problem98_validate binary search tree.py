@@ -50,12 +50,11 @@ class Solution:
 
         return True
 
-
 # 分左右子树去解
-def isValidBST(root, minVal, maxVal):
-    if (root == None):
+def isValidBST(node, minVal=float('-inf'), maxVal=float('inf')):
+    if node == None:
         return True
-    if (root.val >= maxVal or root.val <= minVal):
+    if node.val >= maxVal or node.val <= minVal:
         return False
 
-    return isValidBST(root.left, minVal, root.val) and isValidBST(root.right, root.val, maxVal)
+    return isValidBST(node.left, minVal, node.val) and isValidBST(node.right, node.val, maxVal)

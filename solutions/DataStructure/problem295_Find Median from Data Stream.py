@@ -20,6 +20,8 @@ class MedianFinder:
             return float(self.big_part[0])
         return (self.big_part[0] - self.small_part[0]) / 2.0
 
+#size(maxHeap) - size(minHeap) = {0, 1}
+
 # Your MedianFinder object will be instantiated and called as such:
 obj = MedianFinder()
 nums = [3, 5, 8, 4, 2, 87, 0, 2, 5, 7, -3, 7, 4]

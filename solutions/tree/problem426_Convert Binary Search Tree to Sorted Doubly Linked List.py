@@ -58,5 +58,5 @@ class Solution:
 root = buildBST([6, 2, 4, 8, 5, 3, 7])
 ans = Solution()
 ans.inorder(root)
-print(ans.head.val)
+print_list(ans.head)
 

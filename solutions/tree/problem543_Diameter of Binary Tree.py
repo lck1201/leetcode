@@ -26,3 +26,25 @@ class Solution:
         self.ans = 0
         self.dfs(root)
         return self.ans - 1
+
+class Solution2:
+    def printLongestLeafLeafPath(self, root: TreeNode):
+        if not root:
+            return 0
+
+        ans = []
+        def dfs(node):
+            nonlocal ans
+            if not node:
+                return list()
+
+            leftLongestPath = dfs(node.left)
+            rightLongestPath = dfs(node.right)
+
+            tmpAns = leftLongestPath + [node.val] + rightLongestPath
+            if len(tmpAns) > len(ans):
+                ans = tmpAns
+            return [node.val] + (leftLongestPath if len(leftLongestPath) > len(rightLongestPath) else rightLongestPath)
+
+        dfs(root)
+        return ans

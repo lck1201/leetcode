@@ -32,8 +32,8 @@ class Solution:
             leftPart = sNode
             for _ in range(length//2):
                 sNode = sNode.next
-            root = TreeNode(sNode.val)
 
+            root = TreeNode(sNode.val)
             root.left = dfsBuildTree(leftPart, length//2)
             root.right = dfsBuildTree(sNode.next, length - length//2 - 1)
 
