@@ -7,13 +7,18 @@ class Solution:
         tails = [0] * len(nums)
         size = 0
         for x in nums:
-            i, j = 0, size
-            while i != j:
-                m = (i + j) // 2
+            lo, hi = 0, size
+            while lo != hi:
+                m = (lo + hi) // 2
                 if tails[m] < x:
-                    i = m + 1
+                    lo = m + 1
                 else:
-                    j = m
-            tails[i] = x
-            size = max(i + 1, size)
+                    hi = m
+
+            tails[lo] = x
+            size = max(lo + 1, size)
+            print(tails)
         return size
+
+
+a = Solution().lengthOfLIS([10, 9, 2, 5, 4, 7, 101, 3])

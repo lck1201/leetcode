@@ -8,7 +8,7 @@ class Solution:
         '''
         for c in set(s):
             if s.count(c) < k:
-                return max(self.longestSubstring(t, k) for t in s.split(c))
+                return max(self.longestSubstring2(t, k) for t in s.split(c))
         return len(s)
 
     # same idea

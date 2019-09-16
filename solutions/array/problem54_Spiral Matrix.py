@@ -36,5 +36,8 @@ inp = [
  [ 4, 5, 6 ],
  [ 7, 8, 9 ]
 ]
-re = Solution().spiralOrder(inp)
-print(re)
+# re = Solution().spiralOrder(inp)
+# print(re)
+
+a = list(zip(*inp))
+print(a)

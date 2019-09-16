@@ -104,24 +104,25 @@ class Solution:
 
 # NOTE: ------------merge sort--------------------
 def merge(l1, l2):
-    l = ListNode(0)
-    p = l
+    dummy = ListNode(0)
+    tail = dummy
 
     while l1!=None and l2!=None:
         if l1.val < l2.val:
-            p.next = l1
+            tail.next = l1
             l1 = l1.next
         else:
-            p.next = l2
+            tail.next = l2
             l2 = l2.next
-        p = p.next
+        tail = tail.next
+        tail.next = None
 
     if l1 != None:
-        p.next = l1
+        tail.next = l1
     if l2 != None:
-        p.next = l2
+        tail.next = l2
 
-    return l.next
+    return dummy.next
 
 class Solution2:
     def sortList(self, head):

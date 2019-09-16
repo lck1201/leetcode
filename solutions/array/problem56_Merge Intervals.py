@@ -8,7 +8,7 @@ class Interval:
 
 
 # brilliant example
-def merge(self, intervals):
+def merge(intervals):
     out = []
     for i in sorted(intervals, key=lambda i: i.start): #NOTE: sorted function usage
         if out and i.start <= out[-1].end:

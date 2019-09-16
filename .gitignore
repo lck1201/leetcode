@@ -1,4 +1,7 @@
 test.py
+/OnlineTest_Recruitment
+/2019Autumn
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -107,4 +110,3 @@ venv.bak/
 
 #pycharm
 /.idea
-/OnlineTest_Recruitment

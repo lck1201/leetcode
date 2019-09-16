@@ -1,23 +1,22 @@
-class Solution:
-    def findTargetSumWays(self, nums, S):
-        """
-        :type nums: List[int]
-        :type S: int
-        :rtype: int
-        """
-        def subsetSum(nums, target):
-            dp = [0] * (target+1)
-            dp[0] = 1
-            for n in nums:
-                for i in range(target, n-1,-1):
-                    dp[i] += dp[i-n]
-
-            return dp[target]
-
-
-        ns = sum(nums)
-        return 0 if ns<S or (S + ns)%2>0 else subsetSum(nums, (S+ns)//2)
-
+# class Solution:
+#     def findTargetSumWays(self, nums, S):
+#         """
+#         :type nums: List[int]
+#         :type S: int
+#         :rtype: int
+#         """
+#         def subsetSum(nums, target):
+#             dp = [0] * (target+1)
+#             dp[0] = 1
+#             for n in nums:
+#                 for i in range(target, n-1,-1):
+#                     dp[i] += dp[i-n]
+#
+#             return dp[target]
+#
+#
+#         ns = sum(nums)
+#         return 0 if ns<S or (S + ns)%2>0 else subsetSum(nums, (S+ns)//2)
 
 
 class Solution2(object):

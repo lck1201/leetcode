@@ -7,6 +7,9 @@ class Solution:
         result = []
         nums.sort()
         for idx in range(len(nums) - 2):
+            if nums[idx] > 0:
+                break
+
             if idx > 0 and (nums[idx] == nums[idx-1]):
                 continue
 
