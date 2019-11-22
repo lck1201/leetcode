@@ -13,8 +13,7 @@ class Solution:
 
         for x in nums:
             for i in range(len(table)-1, -1, -1):
-                if table[i] == 1:
-                    if i+x < len(table):
-                        table[i+x] = 1
+                if i - x >= 0 and table[i-x] == 1:
+                    table[i] = 1
 
-        return table[-1]==1
+        return table[target] == 1
